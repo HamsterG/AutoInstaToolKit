@@ -1,5 +1,5 @@
-import urllib.request 
-from bs4 import BeautifulSoup 
+import urllib.request
+from bs4 import BeautifulSoup
 from urllib.request import urlopen as uReq
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -20,15 +20,15 @@ usr = input('Username: ')
 def login():
 	try:
 		driver.get("https://www.instagram.com/accounts/login/?source=auth_switcher")
-		time.sleep(2)
+		time.sleep(4)
 		username = driver.find_element_by_name("username")
 		password = driver.find_element_by_name("password")
 		username.send_keys(uname)
 		password.send_keys(pswd)
 		password.submit()
-		time.sleep(2)
-		driver.find_element_by_xpath("//button[@class='aOOlW   HoLwm ']").click()
-		time.sleep(2)
+		#time.sleep(4)
+		#driver.find_element_by_xpath("//button[@class='aOOlW   HoLwm ']").click()
+		time.sleep(4)
 		driver.get('https://instagram.com/'+usr)
 	except:
 
@@ -40,12 +40,12 @@ def scroll():
 
 	while True:
 		driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-		time.sleep(2)
+		time.sleep(5)
 		new_height = driver.execute_script("return document.body.scrollHeight")
 		if new_height == last_height:
 			break
 		last_height = new_height
-    	
+
 
 def test():
 	fn = 1
@@ -66,4 +66,3 @@ def test():
 
 login()
 test()
-driver.close()
